@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="vaadinosgi" default="default">
+
+	<target name="default">
+		<taskdef resource="aQute/bnd/ant/taskdef.properties" classpath="lib/bnd-0.0.401.jar" />
+		<bnd classpath="src" eclipse="true" failok="false" 
+			exceptions="true" files="vaadin.bnd,vaadin.staticres.bnd,guessit.bnd,guessit-support.bnd" output="dist" />
+	</target>
+	
+</project>

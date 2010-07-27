@@ -1,5 +1,5 @@
 Bundle-SymbolicName: org.vaadin.osgi
-Bundle-Version: 1.0.0
+Bundle-Version: 1.0.1
 
 Private-Package: org.vaadin.osgi
 		

@@ -2,9 +2,29 @@
 <project name="vaadinosgi" default="default">
 
 	<target name="default">
+		<mkdir dir="dist/vaadin" />
+		<mkdir dir="dist/vaadin/support" />
+		<mkdir dir="dist/vaadin/sample" />
+		
 		<taskdef resource="aQute/bnd/ant/taskdef.properties" classpath="lib/bnd-0.0.401.jar" />
 		<bnd classpath="src" eclipse="true" failok="false" 
-			exceptions="true" files="vaadin.bnd,vaadin.staticres.bnd,guessit.bnd,guessit-support.bnd" output="dist" />
+			exceptions="true" files="vaadin.bnd" output="dist/vaadin" />
+
+		<bnd classpath="src" eclipse="true" failok="false" 
+			exceptions="true" files="vaadin.staticres.bnd" output="dist/vaadin/support" />
+
+		<bnd classpath="src" eclipse="true" failok="false" 
+			exceptions="true" files="guessit.bnd,guessit-support.bnd" output="dist/vaadin/sample" />
+		
+		<copy file="etc/README.txt" todir="dist/vaadin" />
+	</target>
+	
+	<target name="dist" depends="clean,default">
+		<jar destfile="dist/org.vaadin.osgi_1.0.1.zip" basedir="dist/vaadin" manifest="etc/MANIFEST.MF" />
+	</target>
+	
+	<target name="clean">
+		<delete dir="dist" />
 	</target>
 	
 </project>

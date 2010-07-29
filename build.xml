@@ -14,7 +14,7 @@
 			exceptions="true" files="vaadin.staticres.bnd" output="dist/vaadin/support" />
 
 		<bnd classpath="src" eclipse="true" failok="false" 
-			exceptions="true" files="guessit.bnd,guessit-support.bnd,guessit2.bnd" output="dist/vaadin/sample" />
+			exceptions="true" files="guessit.bnd,guessit-support.bnd" output="dist/vaadin/sample" />
 		
 		<copy file="etc/README.txt" todir="dist/vaadin" />
 	</target>

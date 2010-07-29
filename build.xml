@@ -14,13 +14,13 @@
 			exceptions="true" files="vaadin.staticres.bnd" output="dist/vaadin/support" />
 
 		<bnd classpath="src" eclipse="true" failok="false" 
-			exceptions="true" files="guessit.bnd,guessit-support.bnd" output="dist/vaadin/sample" />
+			exceptions="true" files="guessit.bnd,guessit-support.bnd,guessit2.bnd" output="dist/vaadin/sample" />
 		
 		<copy file="etc/README.txt" todir="dist/vaadin" />
 	</target>
 	
 	<target name="dist" depends="clean,default">
-		<jar destfile="dist/org.vaadin.osgi_1.0.1.zip" basedir="dist/vaadin" manifest="etc/MANIFEST.MF" />
+		<jar destfile="dist/org.vaadin.osgi_2.0.0.zip" basedir="dist/vaadin" manifest="etc/MANIFEST.MF" />
 	</target>
 	
 	<target name="clean">

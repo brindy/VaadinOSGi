@@ -1,10 +1,12 @@
 Bundle-SymbolicName: org.vaadin.osgi
-Bundle-Version: 1.0.1
+Bundle-Version: 2.0.0
+Bundle-Activator: org.vaadin.osgi.Activator
 
 Private-Package: org.vaadin.osgi
 		
-Service-Component: org.vaadin.osgi.VaadinOSGiApplicationManager
+# Service-Component: org.vaadin.osgi.VaadinOSGiApplicationManager
 
 Import-Bundle: com.vaadin
 -sources: true
 -output: org.vaadin.osgi_${Bundle-Version}.jar
+

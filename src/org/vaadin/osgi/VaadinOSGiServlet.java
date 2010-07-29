@@ -38,8 +38,9 @@ import com.vaadin.terminal.gwt.server.WebApplicationContext;
  * 
  * @author brindy
  */
-@SuppressWarnings("serial")
-public class VaadinOSGiServlet extends AbstractApplicationServlet {
+class VaadinOSGiServlet extends AbstractApplicationServlet {
+
+	private static final long serialVersionUID = 1L;
 
 	private final ComponentFactory factory;
 
@@ -77,7 +78,6 @@ public class VaadinOSGiServlet extends AbstractApplicationServlet {
 					}
 
 				});
-		System.out.println("Ready: " + info);
 		return (Application) info.instance.getInstance();
 	}
 
@@ -85,11 +85,13 @@ public class VaadinOSGiServlet extends AbstractApplicationServlet {
 	public void destroy() {
 		super.destroy();
 
-		HashSet<VaadinSession> sessions = new HashSet<VaadinSession>();
-		sessions.addAll(this.sessions);
-		this.sessions.clear();
-		for (VaadinSession info : sessions) {
-			info.dispose();
+		synchronized (this) {
+			HashSet<VaadinSession> sessions = new HashSet<VaadinSession>();
+			sessions.addAll(this.sessions);
+			this.sessions.clear();
+			for (VaadinSession info : sessions) {
+				info.dispose();
+			}
 		}
 	}
 
@@ -110,7 +112,6 @@ public class VaadinOSGiServlet extends AbstractApplicationServlet {
 		}
 
 		public void dispose() {
-			System.out.println("Disposing: " + this);
 			Application app = (Application) instance.getInstance();
 			if (app != null) {
 				app.close();

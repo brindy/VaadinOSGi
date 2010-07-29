@@ -24,9 +24,10 @@ import aQute.bnd.annotation.component.Reference;
 import com.vaadin.Application;
 import com.vaadin.ui.Window;
 
-@SuppressWarnings("serial")
-@Component(factory = "vaadin.app", name = "guessit")
+@Component(factory = "com.vaadin.Application/guessit")
 public class GuessItApp extends Application {
+
+	private static final long serialVersionUID = 1L;
 
 	private RandomService random;
 

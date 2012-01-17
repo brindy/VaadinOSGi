@@ -6,7 +6,7 @@
 		<mkdir dir="dist/vaadin/support" />
 		<mkdir dir="dist/vaadin/sample" />
 		
-		<taskdef resource="aQute/bnd/ant/taskdef.properties" classpath="lib/bnd-0.0.401.jar" />
+		<taskdef resource="aQute/bnd/ant/taskdef.properties" classpath="lib/biz.aQute.bnd-1.51.1.jar" />
 		<bnd classpath="src" eclipse="true" failok="false" 
 			exceptions="true" files="vaadin.bnd" output="dist/vaadin" />
 

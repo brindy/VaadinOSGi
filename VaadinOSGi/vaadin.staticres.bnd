@@ -1,0 +1,6 @@
+Bundle-SymbolicName: org.vaadin.osgi.staticres
+Bundle-Version: 2.0.0
+Service-Component: org.vaadin.osgi.staticres.StaticResources
+Private-Package: org.vaadin.osgi.staticres
+-sources: true
+-output: org.vaadin.osgi.staticres_${Bundle-Version}.jar

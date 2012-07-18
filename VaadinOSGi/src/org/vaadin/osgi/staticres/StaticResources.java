@@ -18,14 +18,21 @@ package org.vaadin.osgi.staticres;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.osgi.framework.Bundle;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.BundleEvent;
+import org.osgi.framework.BundleListener;
 import org.osgi.service.http.HttpContext;
 import org.osgi.service.http.HttpService;
 import org.osgi.service.http.NamespaceException;
 
+import aQute.bnd.annotation.component.Activate;
 import aQute.bnd.annotation.component.Component;
 import aQute.bnd.annotation.component.Reference;
 
@@ -53,17 +60,17 @@ import com.vaadin.Application;
  * 
  * @author brindy, zdilla
  */
-@Component(properties = { "http.alias=/VAADIN" }, immediate=true)
-public class StaticResources implements HttpContext {
+@Component(properties = { "http.alias=/VAADIN" }, immediate = true)
+public class StaticResources implements HttpContext, BundleListener {
 
 	private static final String RESOURCE_BASE = "/VAADIN";
 
+	private Set<Bundle> resourceBundles = new HashSet<Bundle>();
+
 	@SuppressWarnings("unused")
 	@Reference(unbind = "unsetHttpService", dynamic = true, optional = true, multiple = true)
-	private void setHttpService(final HttpService httpService)
-			throws NamespaceException {
-		httpService.registerResources(RESOURCE_BASE, RESOURCE_BASE,
-				StaticResources.this);
+	private void setHttpService(final HttpService httpService) throws NamespaceException {
+		httpService.registerResources(RESOURCE_BASE, RESOURCE_BASE, this);
 	}
 
 	@SuppressWarnings("unused")
@@ -72,24 +79,67 @@ public class StaticResources implements HttpContext {
 	}
 
 	@Override
-	public boolean handleSecurity(final HttpServletRequest request,
-			final HttpServletResponse response) throws IOException {
+	public boolean handleSecurity(final HttpServletRequest request, final HttpServletResponse response)
+			throws IOException {
 		return true;
 	}
 
 	@Override
 	public URL getResource(final String name) {
-		return Application.class.getResource("/" + name);
+		URL resource = null;
+		String uri = "/" + name;
+		for (Bundle bundle : resourceBundles) {
+			String root = (String) bundle.getHeaders().get("Vaadin-Resources");
+			if (!".".equals(root)) {
+				uri = "/" + root + uri;
+			}
+			if (null != (resource = bundle.getResource(uri))) {
+				return resource;
+			}
+		}
+
+		resource = Application.class.getResource(uri);
+		if (null != resource) {
+			return resource;
+		}
+		return null;
 	}
 
 	@Override
 	public String getMimeType(final String name) {
-		// TODO create better implementation
-		try {
-			final URL url = Application.class.getResource("/" + name);
-			return url == null ? null : url.openConnection().getContentType();
-		} catch (final IOException e) {
-			return null;
+		URL resource = getResource(name);
+		if (null != resource) {
+			try {
+				return resource.openConnection().getContentType();
+			} catch (final IOException e) {
+				return null;
+			}
+		}
+		return null;
+	}
+
+	private void checkBundleForResources(Bundle bundle) {
+		if (null != bundle.getHeaders().get("Vaadin-Resources")) {
+			resourceBundles.add(bundle);
+		} else {
+			resourceBundles.remove(bundle);
+		}
+	}
+
+	@Override
+	public void bundleChanged(BundleEvent event) {
+		if (event.getType() == BundleEvent.UNINSTALLED) {
+			resourceBundles.remove(event.getBundle());
+		} else {
+			checkBundleForResources(event.getBundle());
+		}
+	}
+
+	@Activate
+	public void start(BundleContext ctx) {
+		ctx.addBundleListener(this);
+		for (Bundle bundle : ctx.getBundles()) {
+			checkBundleForResources(bundle);
 		}
 	}
 

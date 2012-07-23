@@ -1,0 +1,6 @@
+Bundle-Version: 2.0.0
+Bundle-Activator: org.vaadin.osgi.Activator
+
+Private-Package: org.vaadin.osgi
+		
+-sources: true

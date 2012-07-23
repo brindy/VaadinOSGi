@@ -1,0 +1,9 @@
+-buildpath: com.vaadin,\
+	osgi.core,\
+	javax.servlet,\
+	osgi.cmpn,\
+	biz.aQute.bnd.annotation
+-runfw: org.apache.felix.framework;version='[4.0.1,4.0.1]'
+-sub: *.bnd
+-runframework: org.apache.felix.framework;version='[4.0.1,4.0.1]'
+-runee: JavaSE-1.6

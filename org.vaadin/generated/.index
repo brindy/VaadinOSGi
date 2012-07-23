@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='utf-8'?>
+<repository increment='1343071833251' name='org.vaadin' xmlns='http://www.osgi.org/xmlns/repository/v1.0.0'>
+  <resource>
+    <capability namespace='osgi.identity'>
+      <attribute name='osgi.identity' value='org.vaadin.osgi.staticres'/>
+      <attribute name='type' value='osgi.bundle'/>
+      <attribute name='version' type='Version' value='2.0.0'/>
+    </capability>
+    <capability namespace='osgi.content'>
+      <attribute name='osgi.content' value='e1b20a4bac7cd3c6af768fb836d4ee26aa22c851d09ef00b2eeb5afb8227ecfa'/>
+      <attribute name='url' value='generated/org.vaadin.osgi.staticres.jar'/>
+      <attribute name='size' type='Long' value='6625'/>
+      <attribute name='mime' value='application/vnd.osgi.bundle'/>
+    </capability>
+    <capability namespace='osgi.wiring.bundle'>
+      <attribute name='osgi.wiring.bundle' value='org.vaadin.osgi.staticres'/>
+      <attribute name='bundle-version' type='Version' value='2.0.0'/>
+    </capability>
+    <capability namespace='osgi.wiring.host'>
+      <attribute name='osgi.wiring.host' value='org.vaadin.osgi.staticres'/>
+      <attribute name='bundle-version' type='Version' value='2.0.0'/>
+    </capability>
+    <capability namespace='bndtools.workspace'>
+      <attribute name='bndtools.workspace' value='file:/Users/brindy/Projects/Personal/vaadin-osgi'/>
+      <attribute name='project.path' value='/org.vaadin'/>
+    </capability>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=com.vaadin)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(&amp;(osgi.wiring.package=javax.servlet.http)(version&gt;=2.5.0)(!(version&gt;=3.0.0)))'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(&amp;(osgi.wiring.package=org.osgi.framework)(version&gt;=1.3.0)(!(version&gt;=2.0.0)))'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(&amp;(osgi.wiring.package=org.osgi.service.http)(version&gt;=1.2.0)(!(version&gt;=2.0.0)))'/>
+    </requirement>
+    <requirement namespace='osgi.extender'>
+      <directive name='filter' value='(&amp;(osgi.extender=osgi.ds)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))'/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace='osgi.identity'>
+      <attribute name='osgi.identity' value='org.vaadin.osgi'/>
+      <attribute name='type' value='osgi.bundle'/>
+      <attribute name='version' type='Version' value='2.0.0'/>
+    </capability>
+    <capability namespace='osgi.content'>
+      <attribute name='osgi.content' value='e3e6db1714df8d7aad028aebc15d5cc2616b7b139efa19ad1c280290c0023b63'/>
+      <attribute name='url' value='generated/org.vaadin.osgi.jar'/>
+      <attribute name='size' type='Long' value='13112'/>
+      <attribute name='mime' value='application/vnd.osgi.bundle'/>
+    </capability>
+    <capability namespace='osgi.wiring.bundle'>
+      <attribute name='osgi.wiring.bundle' value='org.vaadin.osgi'/>
+      <attribute name='bundle-version' type='Version' value='2.0.0'/>
+    </capability>
+    <capability namespace='osgi.wiring.host'>
+      <attribute name='osgi.wiring.host' value='org.vaadin.osgi'/>
+      <attribute name='bundle-version' type='Version' value='2.0.0'/>
+    </capability>
+    <capability namespace='bndtools.workspace'>
+      <attribute name='bndtools.workspace' value='file:/Users/brindy/Projects/Personal/vaadin-osgi'/>
+      <attribute name='project.path' value='/org.vaadin'/>
+    </capability>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=com.vaadin)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=com.vaadin.terminal.gwt.server)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(&amp;(osgi.wiring.package=javax.servlet)(version&gt;=2.5.0)(!(version&gt;=3.0.0)))'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(&amp;(osgi.wiring.package=javax.servlet.http)(version&gt;=2.5.0)(!(version&gt;=3.0.0)))'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(&amp;(osgi.wiring.package=org.osgi.framework)(version&gt;=1.3.0)(!(version&gt;=2.0.0)))'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(&amp;(osgi.wiring.package=org.osgi.service.cm)(version&gt;=1.3.0)(!(version&gt;=2.0.0)))'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(&amp;(osgi.wiring.package=org.osgi.service.component)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(&amp;(osgi.wiring.package=org.osgi.service.http)(version&gt;=1.2.0)(!(version&gt;=2.0.0)))'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(&amp;(osgi.wiring.package=org.osgi.util.tracker)(version&gt;=1.4.0)(!(version&gt;=2.0.0)))'/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace='osgi.identity'>
+      <attribute name='osgi.identity' value='org.vaadin.guessit-support'/>
+      <attribute name='type' value='osgi.bundle'/>
+      <attribute name='version' type='Version' value='1.0.1'/>
+    </capability>
+    <capability namespace='osgi.content'>
+      <attribute name='osgi.content' value='05977be8a1ddc153984b3f5aeeb2bf2fd494a96866fd61516b0289277546398c'/>
+      <attribute name='url' value='generated/org.vaadin.guessit-support.jar'/>
+      <attribute name='size' type='Long' value='3970'/>
+      <attribute name='mime' value='application/vnd.osgi.bundle'/>
+    </capability>
+    <capability namespace='osgi.wiring.bundle'>
+      <attribute name='osgi.wiring.bundle' value='org.vaadin.guessit-support'/>
+      <attribute name='bundle-version' type='Version' value='1.0.1'/>
+    </capability>
+    <capability namespace='osgi.wiring.host'>
+      <attribute name='osgi.wiring.host' value='org.vaadin.guessit-support'/>
+      <attribute name='bundle-version' type='Version' value='1.0.1'/>
+    </capability>
+    <capability namespace='bndtools.workspace'>
+      <attribute name='bndtools.workspace' value='file:/Users/brindy/Projects/Personal/vaadin-osgi'/>
+      <attribute name='project.path' value='/org.vaadin'/>
+    </capability>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=uk.org.brindy.guessit.random)'/>
+    </requirement>
+    <requirement namespace='osgi.extender'>
+      <directive name='filter' value='(&amp;(osgi.extender=osgi.ds)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))'/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace='osgi.identity'>
+      <attribute name='osgi.identity' value='org.vaadin.guessit'/>
+      <attribute name='type' value='osgi.bundle'/>
+      <attribute name='version' type='Version' value='2.0.0'/>
+    </capability>
+    <capability namespace='osgi.content'>
+      <attribute name='osgi.content' value='f8370d755bca2781ed1be760131dd9be1b300f7f8605798d0ae92ab630dadb1b'/>
+      <attribute name='url' value='generated/org.vaadin.guessit.jar'/>
+      <attribute name='size' type='Long' value='19216'/>
+      <attribute name='mime' value='application/vnd.osgi.bundle'/>
+    </capability>
+    <capability namespace='osgi.wiring.bundle'>
+      <attribute name='osgi.wiring.bundle' value='org.vaadin.guessit'/>
+      <attribute name='bundle-version' type='Version' value='2.0.0'/>
+    </capability>
+    <capability namespace='osgi.wiring.host'>
+      <attribute name='osgi.wiring.host' value='org.vaadin.guessit'/>
+      <attribute name='bundle-version' type='Version' value='2.0.0'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='uk.org.brindy.guessit.random'/>
+      <attribute name='version' type='Version' value='2.0.0'/>
+      <attribute name='bundle-symbolic-name' value='org.vaadin.guessit'/>
+      <attribute name='bundle-version' type='Version' value='2.0.0'/>
+    </capability>
+    <capability namespace='bndtools.workspace'>
+      <attribute name='bndtools.workspace' value='file:/Users/brindy/Projects/Personal/vaadin-osgi'/>
+      <attribute name='project.path' value='/org.vaadin'/>
+    </capability>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=com.vaadin)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=com.vaadin.ui)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(&amp;(osgi.wiring.package=uk.org.brindy.guessit.random)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))'/>
+    </requirement>
+    <requirement namespace='osgi.extender'>
+      <directive name='filter' value='(&amp;(osgi.extender=osgi.ds)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))'/>
+    </requirement>
+  </resource>
+</repository>

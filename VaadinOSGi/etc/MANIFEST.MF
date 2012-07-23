@@ -1,8 +1,0 @@
-Manifest-Version: 1.0
-Vaadin-License-Title: Apache License 2.0
-Implementation-Vendor: Christopher Brind
-Implementation-Title: vaadin-osgi
-Implementation-Version: 1.0.1
-Vaadin-Package-Version: 1
-Created-By: 1.6.0_17 (Apple Inc.)
-
